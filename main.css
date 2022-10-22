@@ -1,0 +1,26 @@
+body {
+	background-color: slategrey;
+}
+
+.header {
+	background-color: #fff;
+}
+
+.apps {
+	display: grid;
+}
+
+.app {
+	background-color: #fff;
+	border-radius: 5px;
+	margin: 10px;
+	display: grid;
+}
+
+.app img {
+	width: 20%;
+}
+
+.footer {
+	background-color: #fff;
+}

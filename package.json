@@ -4,31 +4,17 @@
   "description": "An electron based \"launcher\" app (mainly) for the Valve Steam Deck for launching web based apps like YouTube, Netflix, etc.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/McMelonTV/launcher.git"
   },
   "keywords": [
+    "electron",
     "steam",
     "deck",
-    "steam",
-    "deck",
-    "launcher",
-    "steam",
-    "deck",
-    "apps",
-    "youtube",
-    "steam",
-    "deck",
-    "youtube",
-    "music",
-    "steam",
-    "deck",
-    "netflix",
-    "steam",
-    "deck"
+    "launcher"
   ],
   "author": "McMelonTV",
   "license": "MIT",
@@ -38,5 +24,8 @@
   "homepage": "https://github.com/McMelonTV/launcher#readme",
   "devDependencies": {
     "electron": "^21.2.0"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
   }
 }
