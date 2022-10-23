@@ -41,20 +41,12 @@
 		"linux": {
 			"target": [
 				"AppImage",
-				"deb",
-				"rpm",
-				"pacman",
-				"freebsd",
-				"zip",
-				"tar.gz"
+				"pacman"
 			]
 		},
 		"win": {
 			"target": [
-				"nsis",
-				"portable",
-				"zip",
-				"7z"
+				"portable"
 			]
 		}
 	}
