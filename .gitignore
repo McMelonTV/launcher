@@ -1,3 +1,6 @@
+# Builds
+out/
+
 # VSCode
 .vscode/
 
