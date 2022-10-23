@@ -1,10 +1,13 @@
 {
-	"name": "launcher",
+	"name": "launchdeck",
 	"version": "0.0.1",
 	"description": "An electron based \"launcher\" app (mainly) for the Valve Steam Deck for launching web based apps like YouTube, Netflix, etc.",
 	"main": "index.js",
 	"scripts": {
-		"start": "electron ."
+		"start": "electron .",
+		"pack": "electron-builder --dir",
+		"dist": "electron-builder",
+		"postinstall": "electron-builder install-app-deps"
 	},
 	"repository": {
 		"type": "git",
@@ -28,5 +31,31 @@
 	},
 	"dependencies": {
 		"electron-squirrel-startup": "^1.0.0"
+	},
+	"build": {
+		"appId": "com.mcmelontv.launchdeck",
+		"productName": "LaunchDeck",
+		"directories": {
+			"output": "out"
+		},
+		"linux": {
+			"target": [
+				"AppImage",
+				"deb",
+				"rpm",
+				"pacman",
+				"freebsd",
+				"zip",
+				"tar.gz"
+			]
+		},
+		"win": {
+			"target": [
+				"nsis",
+				"portable",
+				"zip",
+				"7z"
+			]
+		}
 	}
 }
