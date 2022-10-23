@@ -1,26 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+
 body {
 	background-color: slategrey;
+	padding: unset;
+	margin: unset;
 }
 
 .header {
 	background-color: #fff;
+	font-family: 'Quicksand', sans-serif;
 }
 
 .apps {
 	display: grid;
-}
-
-.app {
-	background-color: #fff;
-	border-radius: 5px;
-	margin: 10px;
-	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 1rem;
+	margin: 1rem;
 }
 
 .app img {
-	width: 20%;
+	width: 100%;
+	border-radius: 25px;
 }
 
 .footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
 	background-color: #fff;
 }
