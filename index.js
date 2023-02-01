@@ -136,7 +136,15 @@ const createWindow = () => {
 				mainWindow.loadFile('config.html')
 			},
 			visible: true
-		}
+		},
+        {
+            label: 'DevTools',
+            accelerator: 'F12',
+            click: () => {
+                mainWindow.webContents.openDevTools()
+            },
+            visible: true
+        }
 	]
 
 	const menu = Menu.buildFromTemplate(template)

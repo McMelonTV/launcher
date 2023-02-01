@@ -1,14 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+@font-face {
+    font-family: steam;
+    src: url("assets/Steam Font.ttf");
+}
+
+@font-face {
+    font-family: steambold;
+    src: url("assets/Steam Font Bold.ttf");
+}
 
 body {
-	background-color: slategrey;
+	background-color: #383f4a;
 	padding: unset;
 	margin: unset;
+	font-family: steam, sans-serif;
 }
 
 .header {
-	background-color: #fff;
-	font-family: 'Quicksand', sans-serif;
+	height: 40px;
+	margin: 0;
+	background-color: #000000;
+	color: #dcdedf;
+	text-align: center;
+	font-family: steambold, sans-serif;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 40px;
+	margin: 0;
+	background-color: #000000;
+	color: #dcdedf;
+	text-align: center;
+	font-family: steambold, sans-serif;
+}
+
+.steamButton {
+	background-color: #ffffff;
+	color: #000000;
+	border-radius: 50px;
+	padding: 5px;
+	margin: 5px;
+	letter-spacing: 0.1em;
 }
 
 .apps {
@@ -21,12 +55,4 @@ body {
 .app img {
 	width: 100%;
 	border-radius: 20px;
-}
-
-.footer {
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	background-color: #fff;
 }
