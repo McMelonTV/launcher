@@ -40,9 +40,42 @@ body {
 	background-color: #ffffff;
 	color: #000000;
 	border-radius: 50px;
-	padding: 5px;
-	margin: 5px;
+	padding: 5px 15px;
 	letter-spacing: 0.1em;
+	margin: 5px;
+}
+
+
+.menu-items {
+	margin-left: 30px;
+	position: absolute;
+	left: 0;
+	margin-top: 10px;
+}
+
+.menu-items * {
+	margin: 10px 5px;
+}
+
+.controls {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.button p {
+	color: black;
+	margin-top: 5px;
+
+}
+
+.button {
+	position: relative;
+	background-color: white;
+	border-radius: 100%;
+	width: 30px;
+	height: 30px;
+	margin: 5px;
 }
 
 .apps {

@@ -19,9 +19,9 @@ function newWindow(name, type, destination) {
 		height: 800,
 		icon: icon,
 	})
-	if (type == 'file') {
+	if (type === 'file') {
 		name.loadFile(destination)
-	} else if (type == 'url') {
+	} else if (type === 'url') {
 		name.loadURL(destination)
 	}
 
