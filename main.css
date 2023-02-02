@@ -67,12 +67,14 @@ body {
 	position: absolute;
 	right: 0;
 	bottom: 0;
+	display: inline-block;
+	margin-right: 30px;
 }
 
 .button p {
 	color: black;
-	margin-top: 5px;
 	cursor: pointer;
+	margin: 4px;
 }
 
 .button {
@@ -81,8 +83,19 @@ body {
 	border-radius: 100%;
 	width: 30px;
 	height: 30px;
-	margin: 5px;
 	cursor: pointer;
+	margin: 20px 5px 5px;
+}
+
+.control {
+	display: inline-block;
+	margin: 0 10px;
+}
+
+.control * {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 6px 4px;
 }
 
 .apps {
