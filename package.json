@@ -2,7 +2,7 @@
 	"name": "launchdeck",
 	"version": "0.0.1",
 	"description": "An electron based \"launcher\" app (mainly) for the Valve Steam Deck for launching web based apps like YouTube, Netflix, etc.",
-	"main": "index.js",
+	"main": "app.js",
 	"scripts": {
 		"start": "electron .",
 		"pack": "electron-builder --dir",
@@ -30,6 +30,7 @@
 		"electron-builder": "^23.6.0"
 	},
 	"dependencies": {
+		"electron-settings": "^4.0.2",
 		"electron-squirrel-startup": "^1.0.0"
 	},
 	"build": {

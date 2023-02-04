@@ -1,11 +1,11 @@
 @font-face {
     font-family: steam;
-    src: url("assets/fonts/Steam Font.ttf");
+    src: url("../assets/fonts/Steam Font.ttf");
 }
 
 @font-face {
     font-family: steambold;
-    src: url("assets/fonts/Steam Font Bold.ttf");
+    src: url("../assets/fonts/Steam Font Bold.ttf");
 }
 
 body::-webkit-scrollbar {
@@ -115,6 +115,7 @@ body {
 /*stop the a element from overflowing from under the image*/
 .app a {
 	display: block;
+	-webkit-user-drag: none;
 }
 
 .app {
@@ -132,6 +133,7 @@ body {
 .app img {
 	width: 100%;
 	border-radius: 20px;
+	-webkit-user-drag: none;
 }
 
 .app.selected {

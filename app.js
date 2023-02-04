@@ -75,11 +75,11 @@ const createWindow = () => {
 	const mainWindow = new BrowserWindow({
 	  width: 1280,
 	  height: 800,
-	  icon,
+	  icon
 	})
 
 	// and load the index.html of the app.
-	mainWindow.loadFile('home.html')
+	mainWindow.loadFile('public/home.html')
 
 	//mainWindow.menuBarVisible = false
 
@@ -88,7 +88,7 @@ const createWindow = () => {
 			label: 'Home (F9, SD: Menu Button)',
 			accelerator: 'F9',
 			click: () => {
-				mainWindow.loadFile('home.html')
+				mainWindow.loadFile('public/home.html')
 			},
 			visible: true
 		},
@@ -100,7 +100,7 @@ const createWindow = () => {
 					let popoutname = mainWindow.webContents.getURL().split('/')[2].split('.')[1] + 'popout'
 					console.log(popoutname)
 					newWindow(popoutname, 'url', mainWindow.webContents.getURL())
-					mainWindow.loadFile('home.html')
+					mainWindow.loadFile('public/home.html')
 				}
 			},
 			visible: true
@@ -133,7 +133,7 @@ const createWindow = () => {
 			label: 'Config (F2, SD: R5)',
 			accelerator: 'F2',
 			click: () => {
-				mainWindow.loadFile('config.html')
+				mainWindow.loadFile('public/settings.html')
 			},
 			visible: true
 		},
