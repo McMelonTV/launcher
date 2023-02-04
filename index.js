@@ -100,8 +100,8 @@ const createWindow = () => {
 					let popoutname = mainWindow.webContents.getURL().split('/')[2].split('.')[1] + 'popout'
 					console.log(popoutname)
 					newWindow(popoutname, 'url', mainWindow.webContents.getURL())
+					mainWindow.loadFile('home.html')
 				}
-				mainWindow.loadFile('home.html')
 			},
 			visible: true
 		},

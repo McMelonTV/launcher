@@ -16,6 +16,7 @@ body {
 	padding: unset;
 	margin: unset;
 	font-family: steam, sans-serif;
+	user-select: none;
 }
 
 .header {
@@ -57,6 +58,7 @@ body {
 	position: absolute;
 	left: 0;
 	margin-top: 10px;
+	cursor: pointer;
 }
 
 .menu-items * {
@@ -69,6 +71,7 @@ body {
 	bottom: 0;
 	display: inline-block;
 	margin-right: 30px;
+	cursor: pointer;
 }
 
 .button p {
@@ -109,7 +112,31 @@ body {
 	background: linear-gradient(180deg, rgba(60,67,79,1) 0%, rgba(41,45,53,1) 100%);
 }
 
+/*stop the a element from overflowing from under the image*/
+.app a {
+	display: block;
+}
+
+.app {
+	border-radius: 20px;
+	overflow: hidden;
+}
+
+.app:hover {
+	box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px;
+	border-radius: 20px;
+	height: fit-content;
+	overflow: hidden;
+}
+
 .app img {
 	width: 100%;
 	border-radius: 20px;
+}
+
+.app.selected {
+	box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px;
+	border-radius: 20px;
+	height: fit-content;
+	overflow: hidden;
 }
