@@ -79,11 +79,19 @@ function copyText(text) {
 
 function openOverlay() {
 	document.querySelector(".overlay").style.display = "block"
+	document.querySelector('#add-app-id').value = '';
+	document.querySelector('#add-app-url').value = '';
+	document.querySelector('#add-app-image').value = '';
 }
 
 function closeOverlay() {
 	document.querySelector(".overlay").style.display = "none"
 }
+
+document.querySelector("form").addEventListener("submit", (e) => {
+	e.preventDefault();
+	addApp();
+});
 
 function addApp() {
 	let id = document.querySelector('#add-app-id').value;
@@ -91,13 +99,39 @@ function addApp() {
 	let image = document.querySelector('#add-app-image').value;
 	let apps = getSetting('apps');
 
-	if (id === '' || url === '' || image === '') return;
-	if (apps.find((app) => app.id === id)) return;
-	if (apps.find((app) => app.url === url)) return;
-	if (!url.match(/^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/)) return;
+	if (image.includes('?')) {
+		image = image.split('?')[0];
+	}
+	if (id === '' || url === '' || image === '') {
+		loadAppMenu();
+		closeOverlay();
+		return;
+	}
+	if (apps.find((app) => app.id === id)) {
+		loadAppMenu();
+		closeOverlay();
+		return;
+	}
+	if (apps.find((app) => app.url === url)) {
+		loadAppMenu();
+		closeOverlay();
+		return;
+	}
+	if (!url.match(/^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/)) {
+		loadAppMenu();
+		closeOverlay();
+		return;
+	}
+	if (!image.match(/^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/) || !image.match(/^data:image\/[a-z]+;base64,[a-zA-Z0-9+/]+={0,2}$/)) {
+		loadAppMenu();
+		closeOverlay();
+		return;
+	}
 	let testImage = new Image();
 	testImage.src = image;
 	testImage.onerror = function() {
+		loadAppMenu();
+		closeOverlay();
 		return;
 	}
 
@@ -119,6 +153,19 @@ function addApp() {
 			loadAppMenu();
 			closeOverlay();
 		}
+	} else if (image.match(/^data:image\/[a-z]+;base64,[a-zA-Z0-9+/]+={0,2}$/)) {
+		apps.push({
+			id: id,
+			url: url,
+			image: image
+		});
+		setSetting('apps', apps);
+		loadAppMenu();
+		closeOverlay();
+	} else {
+		loadAppMenu();
+		closeOverlay();
+		return;
 	}
 }
 
