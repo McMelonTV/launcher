@@ -179,6 +179,199 @@ function resetApps() {
 	loadAppMenu();
 }
 
+//Settings
+
+/*
+"config": {
+	"general": {
+		"topMenuBar": {
+			"selected": "Enable",
+			"options": [
+				"Enable",
+				"Disable"
+			]
+		},
+		"fullscreenMode": {
+			"selected": "Disable",
+			"options": [
+				"Enable",
+				"Disable"
+			]
+		},
+		"theme": {
+			"selected": "Dark",
+			"options": [
+				"Light",
+				"Dark"
+			]
+		},
+		"colorScheme": {
+			"selected": "Default",
+			"options": [
+				"Cherry",
+				"Orange",
+				"Banana",
+				"Lime",
+				"Kiwi",
+				"Default",
+				"Blueberry",
+				"Grape",
+				"Raspberry"
+			]
+		}
+	},
+	"menuGrid": {
+		"appCorners": {
+			"selected": "Round",
+			"options": [
+				"Sharp",
+				"Round"
+			]
+		},
+		"appSize": {
+			"selected": "Medium",
+			"options": [
+				"Small",
+				"Medium",
+				"Large"
+			]
+		}
+	},
+	"developer": {
+		"devTools": {
+			"selected": "Enable",
+			"options": [
+				"Enable",
+				"Disable"
+			]
+		}
+	}
+}
+*/
+
+function loadSettings() {
+	let config = getSetting('config');
+	let settingsContainer = document.querySelector(`.settings`);
+	settingsContainer.innerHTML = '';
+	for (let settingCategory in config) {
+		let settingCategoryContainer = document.createElement('div');
+		settingCategoryContainer.classList.add('settingCategory');
+		settingCategoryContainer.id = settingCategory;
+		let settingCategoryTitle = document.createElement('h2');
+		settingCategoryTitle.classList.add('settingCategory');
+		settingCategoryTitle.innerHTML = settingCategory.replace(/([A-Z])/g, ' $1').replace(/^./, function(str){ return str.toUpperCase(); });
+		settingCategoryContainer.appendChild(settingCategoryTitle);
+
+		for (let setting in config[settingCategory]) {
+			let settingContainer = document.createElement('div');
+			settingContainer.classList.add('setting');
+			settingContainer.id = setting;
+			let settingTitle = document.createElement('p');
+			settingTitle.classList.add('setting');
+			settingTitle.innerHTML = setting.replace(/([A-Z])/g, ' $1').replace(/^./, function(str){ return str.toUpperCase(); });
+			settingContainer.appendChild(settingTitle);
+			let settingOptions = document.createElement('div');
+			settingOptions.classList.add('options');
+			for (let option of config[settingCategory][setting].options) {
+				let settingOption = document.createElement('button');
+				settingOption.classList.add('settingOption');
+				settingOption.innerHTML = option;
+				if (option == config[settingCategory][setting].selected) {
+					settingOption.classList.add('selected');
+				}
+				settingOptions.appendChild(settingOption);
+			}
+			settingContainer.appendChild(settingOptions);
+			settingCategoryContainer.appendChild(settingContainer);
+		}
+		settingsContainer.appendChild(settingCategoryContainer);
+	}
+
+	document.querySelectorAll('.settingOption').forEach((option) => {
+		option.addEventListener('click', () => {
+			let setting = option.parentElement.parentElement.id;
+			let settingCategory = option.parentElement.parentElement.parentElement.id;
+			let value = option.innerHTML;
+			let config = getSetting('config');
+			config[settingCategory][setting].selected = value;
+			setSetting('config', config);
+			loadSettings();
+		});
+	});
+}
+
+			// in div class settings:
+			/*
+			<div class="settingCategory" id="general">
+				<h2 class="settingCategory">Genral</h2>
+				<div class="setting" id="topMenuBar">
+					<p class="setting">Top Menu Bar</p>
+					<div class="options">
+							<button class="settingOption selected">Enable</button>
+							<button class="settingOption">Disable</button>
+					</div>
+				</div>
+				<div class="setting" id="fullscreenMode">
+					<p class="setting">Fullscreen Mode</p>
+					<div class="options">
+							<button class="settingOption">Enable</button>
+							<button class="settingOption selected">Disable</button>
+					</div>
+				</div>
+				<div class="setting" id="theme">
+					<p class="setting">Theme</p>
+					<div class="options">
+							<button class="settingOption">Light</button>
+							<button class="settingOption selected">Dark</button>
+					</div>
+				</div>
+				<div class="setting" id="colorScheme">
+					<p class="setting">Color Scheme</p>
+					<div class="options">
+							<button class="settingOption">Cherry</button>
+							<button class="settingOption">Orange</button>
+							<button class="settingOption">Banana</button>
+							<button class="settingOption">Lime</button>
+							<button class="settingOption">Kiwi</button>
+							<button class="settingOption selected">Default</button>
+							<button class="settingOption">Blueberry</button>
+							<button class="settingOption">Grape</button>
+							<button class="settingOption">Raspberry</button>
+					</div>
+				</div>
+			</div>
+			<div class="settingCategory" id="menuGrid">
+				<h2 class="settingCategory">Menu Grid</h2>
+				<div class="setting" id="appCorners">
+					<p class="setting">App Corners</p>
+					<div class="options">
+							<button class="settingOption selected">Rounded</button>
+							<button class="settingOption">Sharp</button>
+					</div>
+				</div>
+				<div class="setting" id="appSize">
+					<p class="setting">App Size</p>
+					<div class="options">
+							<button class="settingOption">Small</button>
+							<button class="settingOption selected">Medium</button>
+							<button class="settingOption">Large</button>
+					</div>
+				</div>
+			</div>
+			<div class="settingCategory" id="developer">
+				<h2 class="settingCategory">Developer</h2>
+				<div class="setting" id="devTools">
+					<p class="setting">DevTools</p>
+					<div class="options">
+							<button class="settingOption selected">Enable</button>
+							<button class="settingOption">Disable</button>
+					</div>
+				</div>
+			</div>
+			*/
+
+loadSettings();
+
 //Miscellaneous
 window.addEventListener("auxclick", (event) => {
 	if (event.button === 1) event.preventDefault();
