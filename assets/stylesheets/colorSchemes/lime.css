@@ -1,0 +1,15 @@
+.app:hover, .selected, .doWithApp, .overlayButton, .addAppInputInputs {
+	box-shadow: 0 0 10px #C9FF00, 0 0 20px #C9FF00, 0 0 40px;
+}
+
+.settingCategory, .appMenu, .overlayContent {
+	color: #C9FF00;
+}
+
+.setting, .settingOption {
+	color: #56FF00;
+}
+
+.settingOption, .doWithApp, .overlayButton, .addAppInputInputs {
+	background-color: #C9FF00;
+}
