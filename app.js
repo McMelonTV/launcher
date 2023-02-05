@@ -3,8 +3,7 @@ const path = require('path')
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
-  // eslint-disable-line global-require
-  app.quit()
+	app.quit()
 }
 
 function newWindow(name, type, destination) {
@@ -73,9 +72,14 @@ const createWindow = () => {
 	}
 	// Create the browser window.
 	const mainWindow = new BrowserWindow({
-	  width: 1280,
-	  height: 800,
-	  icon
+		width: 1280,
+		height: 800,
+		webPreferences: {
+			nodeIntegration: true,
+			contextIsolation: false,
+			enableRemoteModule: true
+		},
+		icon
 	})
 
 	// and load the index.html of the app.
@@ -113,14 +117,14 @@ const createWindow = () => {
 			},
 			visible: true
 		},
-    	{
-    		label: 'Fullscreen (F11, SD: R4)',
-    		accelerator: 'F11',
-    		click: () => {
-    			mainWindow.setFullScreen(!mainWindow.isFullScreen())
-    		},
-    		visible: true
-    	},
+			{
+				label: 'Fullscreen (F11, SD: R4)',
+				accelerator: 'F11',
+				click: () => {
+					mainWindow.setFullScreen(!mainWindow.isFullScreen())
+				},
+				visible: true
+			},
 		{
 			label: 'Refresh (F5, SD: L5)',
 			accelerator: 'F5',
@@ -137,14 +141,14 @@ const createWindow = () => {
 			},
 			visible: true
 		},
-        {
-            label: 'DevTools',
-            accelerator: 'F12',
-            click: () => {
-                mainWindow.webContents.openDevTools()
-            },
-            visible: true
-        }
+				{
+						label: 'DevTools',
+						accelerator: 'F12',
+						click: () => {
+								mainWindow.webContents.openDevTools()
+						},
+						visible: true
+				}
 	]
 
 	const menu = Menu.buildFromTemplate(template)
@@ -160,17 +164,17 @@ app.on('ready', createWindow)
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
+	if (process.platform !== 'darwin') {
+		app.quit()
+	}
 })
 
 app.on('activate', () => {
-  // On OS X it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow()
-  }
+	// On OS X it's common to re-create a window in the app when the
+	// dock icon is clicked and there are no other windows open.
+	if (BrowserWindow.getAllWindows().length === 0) {
+		createWindow()
+	}
 })
 
 // In this file you can include the rest of your app's specific main process

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<title>Launchdeck | Settings</title>
+</head>
+<body>
+	<div class="header">
+		<h1 class="header">Settings</h1>
+		<div class="controls">
+			<div class="control" id="GoogleSearchButton">
+				<div class="button">
+					<p>Y</p>
+				</div>
+				<p class="control-text">Google Search</p>
+			</div>
+			<div class="control" id="HomeButton">
+				<div class="button">
+					<p>X</p>
+				</div>
+				<p class="control-text">Home</p>
+			</div>
+		</div>
+	</div>
+	<div class="contentBox">
+		<div class="settings">
+			<div class="settingCategory">
+				<h2 class="settingCategory">Genral</h2>
+				<div class="setting">
+					<p class="setting">Top Menu Bar</p>
+					<div class="options">
+							<button class="settingOption selected">Enable</button>
+							<button class="settingOption">Disable</button>
+					</div>
+				</div>
+				<div class="setting">
+					<p class="setting">Fullscreen Mode</p>
+					<div class="options">
+							<button class="settingOption">Enable</button>
+							<button class="settingOption selected">Disable</button>
+					</div>
+				</div>
+				<div class="setting">
+					<p class="setting">Theme</p>
+					<div class="options">
+							<button class="settingOption">Light</button>
+							<button class="settingOption selected">Dark</button>
+					</div>
+				</div>
+				<div class="setting">
+					<p class="setting">Color Scheme</p>
+					<div class="options">
+							<button class="settingOption">Cherry</button>
+							<button class="settingOption">Orange</button>
+							<button class="settingOption">Banana</button>
+							<button class="settingOption">Lime</button>
+							<button class="settingOption">Kiwi</button>
+							<button class="settingOption selected">Default</button>
+							<button class="settingOption">Blueberry</button>
+							<button class="settingOption">Grape</button>
+							<button class="settingOption">Raspberry</button>
+					</div>
+				</div>
+			</div>
+			<div class="settingCategory">
+				<h2 class="settingCategory">Menu Grid</h2>
+				<div class="setting">
+					<p class="setting">App Corners</p>
+					<div class="options">
+							<button class="settingOption selected">Rounded</button>
+							<button class="settingOption">Sharp</button>
+					</div>
+				</div>
+				<div class="setting">
+					<p class="setting">App Size</p>
+					<div class="options">
+							<button class="settingOption">Smol</button>
+							<button class="settingOption selected">Medium</button>
+							<button class="settingOption">Larg</button>
+					</div>
+				</div>
+			</div>
+			<div class="settingCategory">
+				<h2 class="settingCategory">Developer</h2>
+				<div class="setting">
+					<p class="setting">DevTools</p>
+					<div class="options">
+							<button class="settingOption selected">Enable</button>
+							<button class="settingOption">Disable</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="colorSchemes">
+			<div>
+				<button class="settingOption cherry">Cherry</button>
+				<button class="settingOption orange">Orange</button>
+				<button class="settingOption banana">Banana</button>
+				<button class="settingOption lime">Lime</button>
+				<button class="settingOption kiwi">Kiwi</button>
+				<button class="settingOption default">Default</button>
+				<button class="settingOption blueberry">Blueberry</button>
+				<button class="settingOption grape">Grape</button>
+				<button class="settingOption raspberry">Raspberry</button>
+			</div>
+			<br>
+			<div>
+				<button class="settingOption cherry selected">Cherry</button>
+				<button class="settingOption orange selected">Orange</button>
+				<button class="settingOption banana selected">Banana</button>
+				<button class="settingOption lime selected">Lime</button>
+				<button class="settingOption kiwi selected">Kiwi</button>
+				<button class="settingOption default selected">Default</button>
+				<button class="settingOption blueberry selected">Blueberry</button>
+				<button class="settingOption grape selected">Grape</button>
+				<button class="settingOption raspberry selected">Raspberry</button>
+			</div>
+		</div>
+		<div class="appMenu">
+			<h2>Application List</h2>
+			<span></span>
+			<button class="doWithApp">Add Application</button>
+			<button class="doWithApp">Clear List</button>
+			<div class="settingsApp" id="Twitch">
+				<div class="settingsAppImage" style="display: inline-block;">
+					<img src="file://G:\\Development\\Electron\\launcher/assets/images/twitch.png" style="height: 4rem;">
+				</div>
+				<div class="settingsAppInfo" style="display: inline-block;">
+					<p>ID: Twitch</p>
+					<p>URL: https://www.twitch.tv/</p>
+					<p>Image: file://G:\\Development\\Electron\\launcher/assets/images/twitch.png</p>
+				</div>
+			</div>
+			<div class="settingsApp" id="Netflix">
+				<div class="settingsAppImage" style="display: inline-block;">
+					<img src="file://G:\\Development\\Electron\\launcher/assets/images/netflix.png" style="height: 4rem;">
+				</div>
+				<div class="settingsAppInfo" style="display: inline-block;">
+					<p>ID: Netflix</p>
+					<p>URL: https://www.netflix.com/browse</p>
+					<p>Image: file://G:\\Development\\Electron\\launcher/assets/images/netflix.png</p>
+				</div>
+			</div>
+			<div class="settingsApp" id="Plex">
+				<div class="settingsAppImage" style="display: inline-block;">
+					<img src="file://G:\\Development\\Electron\\launcher/assets/images/plex.png" style="height: 4rem;">
+				</div>
+				<div class="settingsAppInfo" style="display: inline-block;">
+					<p>ID: Plex</p>
+					<p>URL: https://app.plex.tv</p>
+					<p>Image: file://G:\\Development\\Electron\\launcher/assets/images/plex.png</p>
+				</div>
+			</div>
+			<div class="settingsApp" id="YouTube">
+				<div class="settingsAppImage" style="display: inline-block;">
+					<img src="file://G:\\Development\\Electron\\launcher/assets/images/youtube.png" style="height: 4rem;">
+				</div>
+				<div class="settingsAppInfo" style="display: inline-block;">
+					<p>ID: YouTube</p>
+					<p>URL: https://youtube.com</p>
+					<p>Image: file://G:\\Development\\Electron\\launcher/assets/images/youtube.png</p>
+				</div>
+			</div>
+			<div class="settingsApp" id="YouTube Music">
+				<div class="settingsAppImage" style="display: inline-block;">
+					<img src="file://G:\\Development\\Electron\\launcher/assets/images/youtubemusic.png" style="height: 4rem;">
+				</div>
+				<div class="settingsAppInfo" style="display: inline-block;">
+					<p>ID: YouTube Music</p>
+					<p>URL: https://music.youtube.com</p>
+					<p>Image: file://G:\\Development\\Electron\\launcher/assets/images/youtubemusic.png</p>
+				</div>
+			</div>
+			<div class="settingsApp" id="Reddit">
+				<div class="settingsAppImage" style="display: inline-block;">
+					<img src="file://G:\\Development\\Electron\\launcher/assets/images/reddit.png" style="height: 4rem;">
+				</div>
+				<div class="settingsAppInfo" style="display: inline-block;">
+					<p>ID: Reddit</p>
+					<p>URL: https://reddit.com</p>
+					<p>Image: file://G:\\Development\\Electron\\launcher/assets/images/reddit.png</p>
+				</div>
+			</div>
+			<div class="settingsApp" id="WhatsApp">
+				<div class="settingsAppImage" style="display: inline-block;">
+					<img src="file://G:\\Development\\Electron\\launcher/assets/images/whatsapp.png" style="height: 4rem;">
+				</div>
+				<div class="settingsAppInfo" style="display: inline-block;">
+					<p>ID: WhatsApp</p>
+					<p>URL: https://whatsapp.com/app</p>
+					<p>Image: file://G:\\Development\\Electron\\launcher/assets/images/whatsapp.png</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="menu-items">
+			<span class="steamButton">STEAM</span>
+			<span class="menuButton">MENU</span>
+		</div>
+		<div class="controls">
+			<div class="control">
+				<div class="button">
+					<p>A</p>
+				</div>
+				<p class="control-text">SELECT</p>
+			</div>
+			<div class="control">
+				<div class="button">
+					<p>B</p>
+				</div>
+				<p class="control-text">BACK</p>
+			</div>
+		</div>
+	</div>
+<script src="settings.js"></script>
+</body>
+</html>
