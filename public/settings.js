@@ -105,34 +105,34 @@ function addApp() {
 	if (id === '' || url === '' || image === '') {
 		loadAppMenu();
 		closeOverlay();
-		return;
+		return console.log('Missing required fields');
 	}
 	if (apps.find((app) => app.id === id)) {
 		loadAppMenu();
 		closeOverlay();
-		return;
+		return console.log('ID already exists');
 	}
 	if (apps.find((app) => app.url === url)) {
 		loadAppMenu();
 		closeOverlay();
-		return;
+		return console.log('URL already exists');
 	}
 	if (!url.match(/^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/)) {
 		loadAppMenu();
 		closeOverlay();
-		return;
+		return console.log('Invalid URL');
 	}
-	if (!image.match(/^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/) || !image.match(/^data:image\/[a-z]+;base64,[a-zA-Z0-9+/]+={0,2}$/)) {
+	if (!image.match(/^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/) && !image.match(/^data:image\/[a-z]+;base64,[a-zA-Z0-9+/]+={0,2}$/)) {
 		loadAppMenu();
 		closeOverlay();
-		return;
+		return console.log('Invalid Image URL');
 	}
 	let testImage = new Image();
 	testImage.src = image;
 	testImage.onerror = function() {
 		loadAppMenu();
 		closeOverlay();
-		return;
+		return console.log('Invalid Image URL');
 	}
 
 	if (image.match(/^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/)) {
@@ -165,7 +165,7 @@ function addApp() {
 	} else {
 		loadAppMenu();
 		closeOverlay();
-		return;
+		return console.log('Invalid Image URL');
 	}
 }
 
