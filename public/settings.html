@@ -120,81 +120,28 @@
 			</div>
 		</div>
 		<div class="appMenu">
-			<h2>Application List</h2>
-			<span></span>
-			<button class="doWithApp">Add Application</button>
-			<button class="doWithApp">Clear List</button>
-			<div class="settingsApp" id="Twitch">
-				<div class="settingsAppImage" style="display: inline-block;">
-					<img src="file://G:\\Development\\Electron\\launcher/assets/images/twitch.png" style="height: 4rem;">
-				</div>
-				<div class="settingsAppInfo" style="display: inline-block;">
-					<p>ID: Twitch</p>
-					<p>URL: https://www.twitch.tv/</p>
-					<p>Image: file://G:\\Development\\Electron\\launcher/assets/images/twitch.png</p>
-				</div>
-			</div>
-			<div class="settingsApp" id="Netflix">
-				<div class="settingsAppImage" style="display: inline-block;">
-					<img src="file://G:\\Development\\Electron\\launcher/assets/images/netflix.png" style="height: 4rem;">
-				</div>
-				<div class="settingsAppInfo" style="display: inline-block;">
-					<p>ID: Netflix</p>
-					<p>URL: https://www.netflix.com/browse</p>
-					<p>Image: file://G:\\Development\\Electron\\launcher/assets/images/netflix.png</p>
-				</div>
-			</div>
-			<div class="settingsApp" id="Plex">
-				<div class="settingsAppImage" style="display: inline-block;">
-					<img src="file://G:\\Development\\Electron\\launcher/assets/images/plex.png" style="height: 4rem;">
-				</div>
-				<div class="settingsAppInfo" style="display: inline-block;">
-					<p>ID: Plex</p>
-					<p>URL: https://app.plex.tv</p>
-					<p>Image: file://G:\\Development\\Electron\\launcher/assets/images/plex.png</p>
-				</div>
-			</div>
-			<div class="settingsApp" id="YouTube">
-				<div class="settingsAppImage" style="display: inline-block;">
-					<img src="file://G:\\Development\\Electron\\launcher/assets/images/youtube.png" style="height: 4rem;">
-				</div>
-				<div class="settingsAppInfo" style="display: inline-block;">
-					<p>ID: YouTube</p>
-					<p>URL: https://youtube.com</p>
-					<p>Image: file://G:\\Development\\Electron\\launcher/assets/images/youtube.png</p>
-				</div>
-			</div>
-			<div class="settingsApp" id="YouTube Music">
-				<div class="settingsAppImage" style="display: inline-block;">
-					<img src="file://G:\\Development\\Electron\\launcher/assets/images/youtubemusic.png" style="height: 4rem;">
-				</div>
-				<div class="settingsAppInfo" style="display: inline-block;">
-					<p>ID: YouTube Music</p>
-					<p>URL: https://music.youtube.com</p>
-					<p>Image: file://G:\\Development\\Electron\\launcher/assets/images/youtubemusic.png</p>
-				</div>
-			</div>
-			<div class="settingsApp" id="Reddit">
-				<div class="settingsAppImage" style="display: inline-block;">
-					<img src="file://G:\\Development\\Electron\\launcher/assets/images/reddit.png" style="height: 4rem;">
-				</div>
-				<div class="settingsAppInfo" style="display: inline-block;">
-					<p>ID: Reddit</p>
-					<p>URL: https://reddit.com</p>
-					<p>Image: file://G:\\Development\\Electron\\launcher/assets/images/reddit.png</p>
-				</div>
-			</div>
-			<div class="settingsApp" id="WhatsApp">
-				<div class="settingsAppImage" style="display: inline-block;">
-					<img src="file://G:\\Development\\Electron\\launcher/assets/images/whatsapp.png" style="height: 4rem;">
-				</div>
-				<div class="settingsAppInfo" style="display: inline-block;">
-					<p>ID: WhatsApp</p>
-					<p>URL: https://whatsapp.com/app</p>
-					<p>Image: file://G:\\Development\\Electron\\launcher/assets/images/whatsapp.png</p>
-				</div>
-			</div>
 		</div>
+		<div class="overlay">
+			<div class="overlayContent">
+				<h2>Add App</h2>
+				<form>
+					<div class="addAppInputLabels">
+						<label class="addAppInput" for="add-app-id">App ID</label>
+						<label class="addAppInput" for="add-app-url">App URL</label>
+						<label class="addAppInput" for="add-app-url">App Image</label>
+					</div>
+					<div class="addAppInputInputs">
+						<input class="addAppInput" type="text" id="add-app-id" required>
+						<input class="addAppInput" type="text" id="add-app-url" required>
+						<input class="addAppInput" type="text" id="add-app-image" required>
+					</div>
+					<div class="addAppInputSubmit">
+						<button type="submit" class="overlayButton" onclick="addApp()">Add</button>
+						<button type="button" class="overlayButton" style="float: right;" onclick="closeOverlay()">Close</button>
+					</div>
+				</form>
+			</div>
+		</div>		  
 	</div>
 	<div class="footer">
 		<div class="menu-items">
