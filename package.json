@@ -5,9 +5,12 @@
 	"main": "app.js",
 	"scripts": {
 		"start": "electron .",
+		"startforge": "electron-forge start",
 		"pack": "electron-builder --dir",
 		"dist": "electron-builder",
-		"postinstall": "electron-builder install-app-deps"
+		"postinstall": "electron-builder install-app-deps",
+		"package": "electron-forge package",
+		"make": "electron-forge make"
 	},
 	"repository": {
 		"type": "git",
@@ -26,6 +29,11 @@
 	},
 	"homepage": "https://github.com/McMelonTV/launcher#readme",
 	"devDependencies": {
+		"@electron-forge/cli": "^6.0.4",
+		"@electron-forge/maker-deb": "^6.0.4",
+		"@electron-forge/maker-rpm": "^6.0.4",
+		"@electron-forge/maker-squirrel": "^6.0.4",
+		"@electron-forge/maker-zip": "^6.0.4",
 		"electron": "^21.2.0",
 		"electron-builder": "^23.6.0"
 	},

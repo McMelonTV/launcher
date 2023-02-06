@@ -25,6 +25,7 @@ const apps = document.querySelectorAll('.app');
 let selectedApp = 0;
 
 document.addEventListener('keydown', (event) => {
+	apps[selectedApp].classList.add('selected');
 	switch (event.key) {
 		case 'ArrowLeft':
 			if (selectedApp > 0 && selectedApp % 6 !==0) {
@@ -66,57 +67,96 @@ document.addEventListener('keydown', (event) => {
 	}
 });
 
-window.addEventListener("gamepadconnected", (event) => {
+//Gamepad navigation
+window.addEventListener('gamepadconnected', (event) => {
 	const gamepad = event.gamepad;
-	apps[selectedApp].classList.add('selected');
-
-	const handleGamepad = () => {
-		if (gamepad.buttons[0].pressed) {
-			apps[selectedApp].querySelector('a').click();
-		}
-
-		if (gamepad.buttons[14].pressed && selectedApp % 6 !==0) {
-			if (selectedApp > 0) {
+	setInterval(() => {
+		const gamepad = navigator.getGamepads()[0];
+		if (gamepad.axes[0] < -0.5) {
+			if (selectedApp > 0 && selectedApp % 6 !==0) {
 				apps[selectedApp].classList.remove('selected');
 				selectedApp--;
 				apps[selectedApp].classList.add('selected');
-			}
-		} else if (gamepad.buttons[15].pressed) {
+			} else apps[selectedApp].classList.add('selected');
+		}
+		if (gamepad.axes[0] > 0.5) {
 			if (selectedApp < apps.length - 1 && selectedApp % 6 !==5) {
 				apps[selectedApp].classList.remove('selected');
 				selectedApp++;
 				apps[selectedApp].classList.add('selected');
-			}
+			} else apps[selectedApp].classList.add('selected');
 		}
-
-		if (gamepad.axes[1] === -1) {
+		if (gamepad.axes[1] < -0.5) {
 			if (selectedApp - 6 >= 0) {
 				apps[selectedApp].classList.remove('selected');
 				selectedApp -= 6;
 				apps[selectedApp].classList.add('selected');
-		if (selectedApp-6 <= 0) {
-			scrollTo(0, 0)
-		} else scrollTo(0, apps[selectedApp-6].offsetTop)
-			}
-		} else if (gamepad.axes[1] === 1) {
+				if (selectedApp-6 <= 0) {
+					scrollTo(0, 0)
+				} else scrollTo(0, apps[selectedApp-6].offsetTop)
+			} else apps[selectedApp].classList.add('selected');
+		}
+		if (gamepad.axes[1] > 0.5) {
 			if (selectedApp + 6 <= apps.length - 1) {
 				apps[selectedApp].classList.remove('selected');
 				selectedApp += 6;
 				apps[selectedApp].classList.add('selected');
-		if (apps[selectedApp+6] && selectedApp+6 <= apps.length - 1) {
-			scrollTo(0, apps[selectedApp+6].offsetTop-apps[selectedApp+6].offsetHeight*2)
-		} else scrollTo(0, apps[selectedApp].offsetTop+apps[selectedApp].offsetHeight*2)
-			}
+				if (apps[selectedApp+6] && selectedApp+6 <= apps.length - 1) {
+					scrollTo(0, apps[selectedApp+6].offsetTop-apps[selectedApp+6].offsetHeight*2)
+				} else scrollTo(0, apps[selectedApp].offsetTop+apps[selectedApp].offsetHeight*2)
+			} else apps[selectedApp].classList.add('selected');
 		}
-	};
+		if (gamepad.buttons[0].pressed) {
+			apps[selectedApp].querySelector('a').click();
+		}
 
-window.addEventListener("gamepaddisconnected", (event) => {
-	apps[selectedApp].classList.remove('selected');
-});
+		//dpad
+		if (gamepad.buttons[14].pressed) {
+			if (selectedApp > 0 && selectedApp % 6 !==0) {
+				apps[selectedApp].classList.remove('selected');
+				selectedApp--;
+				apps[selectedApp].classList.add('selected');
+			} else apps[selectedApp].classList.add('selected');
+		}
+		if (gamepad.buttons[15].pressed) {
+			if (selectedApp < apps.length - 1 && selectedApp % 6 !==5) {
+				apps[selectedApp].classList.remove('selected');
+				selectedApp++;
+				apps[selectedApp].classList.add('selected');
+			} else apps[selectedApp].classList.add('selected');
+		}
+		if (gamepad.buttons[12].pressed) {
+			if (selectedApp - 6 >= 0) {
+				apps[selectedApp].classList.remove('selected');
+				selectedApp -= 6;
+				apps[selectedApp].classList.add('selected');
+				if (selectedApp-6 <= 0) {
+					scrollTo(0, 0)
+				} else scrollTo(0, apps[selectedApp-6].offsetTop)
+			} else apps[selectedApp].classList.add('selected');
+		}
+		if (gamepad.buttons[13].pressed) {
+			if (selectedApp + 6 <= apps.length - 1) {
+				apps[selectedApp].classList.remove('selected');
+				selectedApp += 6;
+				apps[selectedApp].classList.add('selected');
+				if (apps[selectedApp+6] && selectedApp+6 <= apps.length - 1) {
+					scrollTo(0, apps[selectedApp+6].offsetTop-apps[selectedApp+6].offsetHeight*2)
+				} else scrollTo(0, apps[selectedApp].offsetTop+apps[selectedApp].offsetHeight*2)
+			} else apps[selectedApp].classList.add('selected');
+		}
 
-	setInterval(() => {
-		handleGamepad();
-	}, 50);
+		//buttons
+		if (gamepad.buttons[0].pressed) {
+			apps[selectedApp].querySelector('a').click();
+		}
+		if (gamepad.buttons[2].pressed) {
+			window.location.href = 'settings.html';
+		}
+		if (gamepad.buttons[3].pressed) {
+			window.location.href = 'https://google.com';
+		}
+	}, 100);
 });
 
 //Open the settings page

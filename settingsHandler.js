@@ -100,6 +100,7 @@ const defaultSettings = {
 					"Lime",
 					"Kiwi",
 					"Default",
+					"Plum",
 					"Blueberry",
 					"Grape",
 					"Raspberry"

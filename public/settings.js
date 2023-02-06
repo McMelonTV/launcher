@@ -230,19 +230,20 @@ function loadSettings() {
 				loadThemeAndColorScheme();
 				window.location.reload();
 			}
+			const { ipcRenderer } = require('electron')
 			if (settingCategory == 'general' && setting == 'fullscreenMode') {
 				if (value == 'Enable') {
-					alert('WIP')
+					ipcRenderer.send('setting', 'fullscreenMode.enable');
 				}
 				if (value == 'Disable') {
-					alert('WIP')
+					ipcRenderer.send('setting', 'fullscreenMode.disable');
 				}
 			} else if (settingCategory == 'general' && setting == 'topMenuBar') {
 				if (value == 'Enable') {
-					alert('WIP')
+					ipcRenderer.send('setting', 'topMenuBar.enable');
 				}
 				if (value == 'Disable') {
-					alert('WIP')
+					ipcRenderer.send('setting', 'topMenuBar.disable');
 				}
 			}
 			if (settingCategory == 'menuGrid' && setting == 'appCorners') {
@@ -289,6 +290,19 @@ function loadThemeAndColorScheme() {
 }
 
 loadThemeAndColorScheme();
+
+//Gamepad navigation
+window.addEventListener('gamepadconnected', (event) => {
+	const gamepad = event.gamepad;
+	setInterval(() => {
+		if (gamepad.buttons[2].pressed) {
+			window.location.href = 'home.html';
+		}
+		if (gamepad.buttons[3].pressed) {
+			window.location.href = 'https://google.com';
+		}
+	}, 100);
+});
 
 //Miscellaneous
 window.addEventListener("auxclick", (event) => {

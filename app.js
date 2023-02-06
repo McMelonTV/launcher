@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu } = require('electron')
+const { app, BrowserWindow, Menu, ipcMain } = require('electron')
 const path = require('path')
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -179,3 +179,33 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+
+ipcMain.on('setting', (event, arg) => {
+	if (arg.split('.')[0] == 'fullscreenMode') {
+		if (arg.split('.')[1] == 'enable') {
+			BrowserWindow.getAllWindows().forEach((window) => {
+				window.setFullScreen(true);
+			});
+		} else {
+			BrowserWindow.getAllWindows().forEach((window) => {
+				window.setFullScreen(false);
+			});
+		}
+	} else if (arg.split('.')[0] == 'topMenuBar') {
+		if (arg.split('.')[1] == 'enable') {
+			BrowserWindow.getAllWindows().forEach((window) => {
+				window.setMenuBarVisibility(true);
+			});
+		} else {
+			BrowserWindow.getAllWindows().forEach((window) => {
+				window.setMenuBarVisibility(false);
+			});
+		}
+	}
+});
+
+const { getSetting } = require('./settingsHandler.js');
+app.on('browser-window-created', (e, window) => {
+	window.setFullScreen(getSetting('config').general.fullscreenMode.selected == 'Enable' ? true : false);
+	window.setMenuBarVisibility(getSetting('config').general.topMenuBar.selected == 'Enable' ? true : false);
+});
