@@ -232,17 +232,17 @@ function loadSettings() {
 			}
 			if (settingCategory == 'general' && setting == 'fullscreenMode') {
 				if (value == 'Enable') {
-					
+					alert('WIP')
 				}
 				if (value == 'Disable') {
-					
+					alert('WIP')
 				}
 			} else if (settingCategory == 'general' && setting == 'topMenuBar') {
 				if (value == 'Enable') {
-					
+					alert('WIP')
 				}
 				if (value == 'Disable') {
-					
+					alert('WIP')
 				}
 			}
 			if (settingCategory == 'menuGrid' && setting == 'appCorners') {
@@ -261,6 +261,14 @@ function loadSettings() {
 				}
 				if (value == 'Large') {
 					fs.writeFileSync('public/appSize.css', fs.readFileSync('assets/stylesheets/menuGrid/appSizeLarge.css', 'utf8'));
+				}
+			}
+			if (settingCategory == 'developer' && setting == 'devTools') {
+				if (value == 'Enable') {
+					alert('WIP')
+				}
+				if (value == 'Disable') {
+					alert('WIP')
 				}
 			}
 		});
