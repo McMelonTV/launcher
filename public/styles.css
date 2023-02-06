@@ -144,17 +144,13 @@ body {
 	height: 100%;
 }
 
-.colorSchemes {
-	margin: 0.5rem 1rem;
-	text-align: center;
-}
-
 .settings {
 	padding: 1rem;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 1rem;
 	height: 100%;
+	margin: 0.5em 1rem;
 }
 
 .settingCategory {
@@ -189,7 +185,7 @@ body {
 	height: 100%;
 	padding: 1rem;
 	line-height: 0.3rem;
-	margin: 40px 1rem;
+	margin: 0.5em 1rem;
 }
 
 .doWithApp {
@@ -289,95 +285,3 @@ body {
 	font-style: italic;
 	background-color: unset;
 }
-
-/*Color Schemes*/
-.default {
-	background-color: #00ffff !important;
-}
-.default.selected {
-	box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px !important;
-}
-.defaultText {
-	color: #00aaaa !important;
-}
-
-.cherry {
-	background-color: #5E0013 !important;
-}
-.cherry.selected {
-	box-shadow: 0 0 10px #C7233C, 0 0 20px #C7233C, 0 0 40px !important;
-}
-.cherryText {
-	color: #9A0B20 !important;
-}
-
-.orange {
-	background-color: #FD5602 !important;
-}
-.orange.selected {
-	box-shadow: 0 0 10px #FF8303, 0 0 20px #FF8303, 0 0 40px !important;
-}
-.orangeText {
-	color: #FE6E00 !important;
-}
-
-.banana {
-	background-color: #FFB400 !important;
-}
-.banana.selected {
-	box-shadow: 0 0 10px #F0FF00, 0 0 20px #F0FF00, 0 0 40px !important;
-}
-.bananaText {
-	color: #FFDB00 !important;
-}
-
-.lime {
-	background-color: #56FF00 !important;
-}
-.lime.selected {
-	box-shadow: 0 0 10px #C9FF00, 0 0 20px #C9FF00, 0 0 40px !important;
-}
-.limeText {
-	color: #A3FF00 !important;
-}
-
-.kiwi {
-	background-color: #779404 !important;
-}
-.kiwi.selected {
-	box-shadow: 0 0 10px #9EBB40, 0 0 20px #9EBB40, 0 0 40px !important;
-}
-.kiwiText {
-	color: #8EAA1D !important;
-}
-
-.blueberry {
-	background-color: #3E2F6F !important;
-}
-.blueberry.selected {
-	box-shadow: 0 0 10px #705CB2, 0 0 20px #705CB2, 0 0 40px !important;
-}
-.blueberryText {
-	color: #603F96 !important;
-}
-
-.grape {
-	background-color: #461088 !important;
-}
-.grape.selected {
-	box-shadow: 0 0 10px #632EA7, 0 0 20px #632EA7, 0 0 40px !important;
-}
-.grapeText {
-	color: #5915A5 !important;
-}
-
-.raspberry {
-	background-color: #EC1354 !important;
-}
-.raspberry.selected {
-	box-shadow: 0 0 10px #FB79A0, 0 0 20px #FB79A0, 0 0 40px !important;
-}
-.raspberryText {
-	color: #F23A72 !important;
-}
-/*End Color Schemes*/
