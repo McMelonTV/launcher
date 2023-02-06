@@ -1,15 +1,47 @@
-.app:hover, .selected, .doWithApp, .overlayButton, .addAppInputInputs {
+.app:hover {
 	box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px;
 }
 
-.settingCategory, .appMenu, .overlayContent {
+.app.selected {
+	box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px;
+}
+
+.settingCategory {
 	color: #00ffff;
 }
 
-.setting, .settingOption {
+.setting {
 	color: #00aaaa;
 }
 
-.settingOption, .doWithApp, .overlayButton, .addAppInputInputs {
+.settingOption {
+	background-color: #00aaaa;
+}
+
+.settingOption.selected {
 	background-color: #00ffff;
+	box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px;
+}
+
+.appMenu {
+	color: #00ffff;
+}
+
+.doWithApp {
+	background-color: #00ffff;
+	box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px;
+}
+  
+.overlayContent {
+	color: #00ffff;
+}
+
+.overlayButton {
+	background-color: #00ffff;
+	box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px;
+}
+
+.addAppInputInputs input {
+	background-color: #00ffff;
+	box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px;
 }

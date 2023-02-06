@@ -1,0 +1,4 @@
+body, .overlayContent {
+	background: rgb(226,226,226);
+	background: linear-gradient(180deg, rgba(226,226,226,1) 0%, rgba(196,196,196,1) 100%);
+}

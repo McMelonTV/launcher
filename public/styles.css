@@ -179,6 +179,10 @@ body {
 	margin: 5px;
 }
 
+.settingOption.selected {
+	--none: none;
+}
+
 .settingOption:hover {
 	filter: brightness(125%);
 }
@@ -241,6 +245,8 @@ body {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	background: rgb(60,67,79);
+	background: linear-gradient(180deg, rgba(60,67,79,1) 0%, rgba(41,45,53,1) 100%);
 	padding: 20px;
 	border-radius: 10px;
 }
@@ -297,7 +303,7 @@ body {
 	box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px !important;
 }
 .defaultText {
-	color: #00D5D5 !important;
+	color: #00aaaa !important;
 }
 
 .cherry {

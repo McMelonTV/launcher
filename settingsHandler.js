@@ -85,8 +85,10 @@ const defaultSettings = {
 			"theme": {
 				"selected": "Dark",
 				"options": [
+					"Light++",
 					"Light",
-					"Dark"
+					"Dark",
+					"Dark++"
 				]
 			},
 			"colorScheme": {

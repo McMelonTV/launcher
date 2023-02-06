@@ -226,6 +226,8 @@ function loadSettings() {
 			config[settingCategory][setting].selected = value;
 			setSetting('config', config);
 			loadSettings();
+			loadThemeAndColorScheme();
+			window.location.reload();
 		});
 	});
 }
@@ -239,8 +241,8 @@ function loadThemeAndColorScheme() {
 	let theme = config.general.theme.selected;
 	let colorScheme = config.general.colorScheme.selected;
 	// replace the css file with the selected theme
-	fs.writeFileSync('theme.css', fs.readFileSync(`assets/stylesheets/themes/${theme.toLowerCase()}.css`));
-	fs.writeFileSync('colorScheme.css', fs.readFileSync(`assets/stylesheets/colorSchemes/${colorScheme.toLowerCase()}.css`));
+	fs.writeFileSync('public/theme.css', fs.readFileSync(`assets/stylesheets/themes/${theme.toLowerCase()}.css`));
+	fs.writeFileSync('public/colorScheme.css', fs.readFileSync(`assets/stylesheets/colorSchemes/${colorScheme.toLowerCase()}.css`));
 }
 
 loadThemeAndColorScheme();
