@@ -109,7 +109,6 @@ body {
 .apps {
 	padding: 1rem;
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
 	grid-gap: 1rem;
 	margin: 40px 0;
 	height: 100%;
@@ -122,24 +121,20 @@ body {
 }
 
 .app {
-	border-radius: 20px;
 	overflow: hidden;
 }
 
 .app:hover {
-	border-radius: 20px;
 	height: fit-content;
 	overflow: hidden;
 }
 
 .app img {
 	width: 100%;
-	border-radius: 20px;
 	-webkit-user-drag: none;
 }
 
 .app.selected {
-	border-radius: 20px;
 	height: fit-content;
 	overflow: hidden;
 }

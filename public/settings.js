@@ -226,8 +226,43 @@ function loadSettings() {
 			config[settingCategory][setting].selected = value;
 			setSetting('config', config);
 			loadSettings();
-			loadThemeAndColorScheme();
-			window.location.reload();
+			if ((settingCategory == 'general' && setting == 'theme') || (settingCategory == 'general' && setting == 'colorScheme')) {
+				loadThemeAndColorScheme();
+				window.location.reload();
+			}
+			if (settingCategory == 'general' && setting == 'fullscreenMode') {
+				if (value == 'Enable') {
+					
+				}
+				if (value == 'Disable') {
+					
+				}
+			} else if (settingCategory == 'general' && setting == 'topMenuBar') {
+				if (value == 'Enable') {
+					
+				}
+				if (value == 'Disable') {
+					
+				}
+			}
+			if (settingCategory == 'menuGrid' && setting == 'appCorners') {
+				if (value == 'Sharp') {
+					fs.writeFileSync('public/appCorners.css', fs.readFileSync('assets/stylesheets/menuGrid/appCornersSharp.css', 'utf8'));
+				}
+				if (value == 'Rounded') {
+					fs.writeFileSync('public/appCorners.css', fs.readFileSync('assets/stylesheets/menuGrid/appCornersRounded.css', 'utf8'));
+				}
+			} else if (settingCategory == 'menuGrid' && setting == 'appSize') {
+				if (value == 'Small') {
+					fs.writeFileSync('public/appSize.css', fs.readFileSync('assets/stylesheets/menuGrid/appSizeSmall.css', 'utf8'));
+				}
+				if (value == 'Medium') {
+					fs.writeFileSync('public/appSize.css', fs.readFileSync('assets/stylesheets/menuGrid/appSizeMedium.css', 'utf8'));
+				}
+				if (value == 'Large') {
+					fs.writeFileSync('public/appSize.css', fs.readFileSync('assets/stylesheets/menuGrid/appSizeLarge.css', 'utf8'));
+				}
+			}
 		});
 	});
 }
