@@ -316,6 +316,10 @@ document.querySelector('#HomeButton').addEventListener('click', () => {
 	window.location.href = 'home.html';
 });
 
+document.querySelector('#GoogleSearchButton').addEventListener('click', () => {
+	window.location.href = 'https://google.com';
+});
+
 document.addEventListener('keydown', (event) => {
 	if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') return;
 	if (event.key === 'x') {

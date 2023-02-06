@@ -82,10 +82,7 @@ const createWindow = () => {
 		icon
 	})
 
-	// and load the index.html of the app.
 	mainWindow.loadFile('public/home.html')
-
-	//mainWindow.menuBarVisible = false
 
 	const template = [
 		{
