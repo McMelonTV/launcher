@@ -1,6 +1,6 @@
 # launcher
 ### Launcher is an electron based app, made (mainly) for the Valve Steam Deck and TV PCs for launching non-native, web based apps like YouTube, Netflix, etc.
-Still in a very early stage of development but if you know how to build and electron app and want to use this then go ahead.
+Still in a pretty early stage of development but if you know how to build and electron app and want to use this then go ahead.
 
 ### Features
 ```diff
