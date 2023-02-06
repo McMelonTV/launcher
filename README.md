@@ -9,6 +9,7 @@ Implemented
 + Custom apps
 + Settings stored on drive
 + UI Similiar to the Steam Deck UI
++ Customizable UI
 
 Work in progress/Planned
 - Custom Color Schemes
