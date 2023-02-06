@@ -141,14 +141,14 @@ const createWindow = () => {
 			},
 			visible: true
 		},
-				{
-						label: 'DevTools',
-						accelerator: 'F12',
-						click: () => {
-								mainWindow.webContents.openDevTools()
-						},
-						visible: true
-				}
+		{
+			label: 'DevTools (F12)',
+			accelerator: 'F12',
+			click: () => {
+					mainWindow.webContents.openDevTools()
+			},
+			visible: true
+		}
 	]
 
 	const menu = Menu.buildFromTemplate(template)
@@ -201,6 +201,16 @@ ipcMain.on('setting', (event, arg) => {
 				window.setMenuBarVisibility(false);
 			});
 		}
+	} else if (arg.split('.')[0] == 'devTools') {
+		if (arg.split('.')[1] == 'enable') {
+			BrowserWindow.getAllWindows().forEach((window) => {
+				window.webContents.openDevTools();
+			});
+		} else {
+			BrowserWindow.getAllWindows().forEach((window) => {
+				window.webContents.closeDevTools();
+			});
+		}
 	}
 });
 
@@ -208,4 +218,5 @@ const { getSetting } = require('./settingsHandler.js');
 app.on('browser-window-created', (e, window) => {
 	window.setFullScreen(getSetting('config').general.fullscreenMode.selected == 'Enable' ? true : false);
 	window.setMenuBarVisibility(getSetting('config').general.topMenuBar.selected == 'Enable' ? true : false);
+	getSetting('config').developer.devTools.selected == 'Enable' ? window.webContents.openDevTools() : window.webContents.closeDevTools();
 });

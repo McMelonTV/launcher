@@ -266,10 +266,10 @@ function loadSettings() {
 			}
 			if (settingCategory == 'developer' && setting == 'devTools') {
 				if (value == 'Enable') {
-					alert('WIP')
+					ipcRenderer.send('setting', 'devTools.enable');
 				}
 				if (value == 'Disable') {
-					alert('WIP')
+					ipcRenderer.send('setting', 'devTools.disable');
 				}
 			}
 		});
